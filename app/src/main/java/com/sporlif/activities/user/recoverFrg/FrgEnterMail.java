@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.sporlif.R;
-import com.sporlif.models.user.CtrRecoverPass;
+import com.sporlif.controllers.user.CtrRecoverPass;
 import com.sporlif.utils.UtilsForViews;
 
 /**

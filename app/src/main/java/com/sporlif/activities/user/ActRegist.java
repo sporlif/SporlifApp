@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.sporlif.R;
-import com.sporlif.activities.user.regist_frg.FrgLivingPlace;
-import com.sporlif.activities.user.regist_frg.FrgProfile;
-import com.sporlif.activities.user.regist_frg.FrgRegistName;
-import com.sporlif.activities.user.regist_frg.FrgUserData;
+import com.sporlif.activities.user.registFrg.FrgLivingPlace;
+import com.sporlif.activities.user.registFrg.FrgProfile;
+import com.sporlif.activities.user.registFrg.FrgRegistName;
+import com.sporlif.activities.user.registFrg.FrgUserData;
 import com.sporlif.utils.ClientHttpRequest;
 import com.sporlif.utils.DialogAsyncTask;
 
