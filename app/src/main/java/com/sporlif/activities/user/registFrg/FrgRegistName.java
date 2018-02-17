@@ -27,7 +27,7 @@ public class FrgRegistName extends Fragment {
     public FrgRegistName() {
 
     }
-;
+    ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

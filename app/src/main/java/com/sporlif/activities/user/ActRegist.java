@@ -61,17 +61,17 @@ public class ActRegist extends Activity {
                     case 0:
 
                         if (frgRegistName.getFirstName().trim().length() == 0) {
-                            Toast.makeText(ActRegist.this, "Debes escribir tu nombre", Toast.LENGTH_LONG);
+                            Toast.makeText(ActRegist.this, "Debes escribir tu nombre", Toast.LENGTH_LONG).show();
                             return;
                         }
 
                         if (frgRegistName.getLastName().trim().length() == 0) {
-                            Toast.makeText(ActRegist.this, "Debes escribir tu apellido", Toast.LENGTH_LONG);
+                            Toast.makeText(ActRegist.this, "Debes escribir tu apellido", Toast.LENGTH_LONG).show();
                             return;
                         }
 
                         if (frgRegistName.getGenreId() == -1) {
-                            Toast.makeText(ActRegist.this, "Debes seleccionar tú género", Toast.LENGTH_LONG);
+                            Toast.makeText(ActRegist.this, "Debes seleccionar tú género", Toast.LENGTH_LONG).show();
                             return;
                         }
 
@@ -79,10 +79,40 @@ public class ActRegist extends Activity {
 
                     case 1:
 
-                        if(frgLivingPlace.getSelectedPosId() == 0){
-                            Toast.makeText(ActRegist.this, "Debes seleccionar tú lugar de residencia.", Toast.LENGTH_LONG);
+                        if (frgLivingPlace.getSelectedPosId() == 0) {
+                            Toast.makeText(ActRegist.this, "Debes seleccionar tú lugar de residencia.", Toast.LENGTH_LONG).show();
                             return;
                         }
+
+                        break;
+
+                    case 3:
+
+                        if (frgUserData.getEmail() == "") {//validar dirección de correo
+                            Toast.makeText(ActRegist.this, "Debes ingresar tu correo electrónico.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if (frgUserData.getPass() == "") {
+                            Toast.makeText(ActRegist.this, "Debes ingresar una contraseña.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if (frgUserData.getPassConfirm() == "") {
+                            Toast.makeText(ActRegist.this, "Debes confirmar tu contraseña.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        if(!frgUserData.getPass().equals(frgUserData.getPassConfirm())){
+                            Toast.makeText(ActRegist.this, "Las contraseñas no coinciden.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        break;
+
+                    case 4:
+
+                        //Confirmación y envío de datos
 
                         break;
 
@@ -114,15 +144,15 @@ public class ActRegist extends Activity {
             do {
                 try {
 
-                    request = new ClientHttpRequest(new URL("https://wsporlif-project.herokuapp.com/?op=getC&filter=pasto").openConnection());//luigar
+                    request = new ClientHttpRequest(new URL("https://wsporlif-project.herokuapp.com/?mod=user&op=getC&filter=pasto").openConnection());//luigar
                     request.setConnectTimeout(ClientHttpRequest.CONNECT_TIMEOUT);
                     places = Json.createReader(request.post()).readArray();
 
-                    request = new ClientHttpRequest(new URL("https://wsporlif-project.herokuapp.com/?op=getG").openConnection());//generos
+                    request = new ClientHttpRequest(new URL("https://wsporlif-project.herokuapp.com/?mod=user&op=getG").openConnection());//generos
                     request.setConnectTimeout(ClientHttpRequest.CONNECT_TIMEOUT);
                     genres = Json.createReader(request.post()).readArray();
 
-                    request = new ClientHttpRequest(new URL("https://wsporlif-project.herokuapp.com/?op=getP").openConnection());//positions
+                    request = new ClientHttpRequest(new URL("https://wsporlif-project.herokuapp.com/?mod=user&op=getP").openConnection());//positions
                     request.setConnectTimeout(ClientHttpRequest.CONNECT_TIMEOUT);
                     positions = Json.createReader(request.post()).readArray();
 

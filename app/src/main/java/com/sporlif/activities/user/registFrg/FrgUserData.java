@@ -31,4 +31,16 @@ public class FrgUserData extends Fragment {
         actRegistEtConfirmPass = (TextView) view.findViewById(R.id.actRegistEtConfirmPass);
     }
 
+    public String getEmail(){
+        return actRegistEtEmail.getText().toString().trim();
+    }
+
+    public String getPass(){
+        return actRegistEtPass.getText().toString().trim();
+    }
+
+    public String getPassConfirm(){
+        return actRegistEtConfirmPass.getText().toString().trim();
+    }
+
 }
